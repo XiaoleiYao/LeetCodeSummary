@@ -48,3 +48,36 @@ void insert_sort(int[] arr,int n)
   }
 }
 ```
+
+# 选择排序
+```
+* 时间复杂度
+   * 最坏：O(N^2);
+   * 最好：O(N);
+   * 平均：O(N^2);
+* 空间复杂度：O(1);
+* 稳定性：不稳定；
+```
+```c
+void slect_sort(int[] arr,int n)
+{
+  int min = 0;
+  for(int i = 0;i < n;++i)
+  {
+    min = i;
+    for(int j = i;j < n-1;++j)
+    {
+      if(arr[j] < arr[j+1])
+      {
+        min = j+1;
+      }
+    }
+    if(i != min)
+    {
+      int temp = arr[i];
+      arr[i] = arr[min];
+      arr[min] = temp;
+    }
+  }
+}
+```
