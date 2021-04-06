@@ -12,6 +12,7 @@ void bubble_sort(int[] arr,int n)
 {
   for(int i = 0;i < n;++i)
   {
+    int flag = -1;
     for(int j = 0;j < n-i-1;++j)
     {
       if(arr[j] > arr[j+1])
@@ -19,7 +20,12 @@ void bubble_sort(int[] arr,int n)
         int temp = arr[j];
         arr[j] = arr[j+1];
         arr[j+1] = temp;
+        flag = 0;
       }
+    }
+    if(flag)
+    {
+      break;
     }
   }
 }
@@ -53,7 +59,7 @@ void insert_sort(int[] arr,int n)
 ```
 * 时间复杂度
    * 最坏：O(N^2);
-   * 最好：O(N);
+   * 最好：O(N^2);
    * 平均：O(N^2);
 * 空间复杂度：O(1);
 * 稳定性：不稳定；
@@ -65,11 +71,11 @@ void slect_sort(int[] arr,int n)
   for(int i = 0;i < n;++i)
   {
     min = i;
-    for(int j = i;j < n-1;++j)
+    for(int j = i;j < n;++j)
     {
-      if(arr[j] < arr[j+1])
+      if(arr[min] < arr[j])
       {
-        min = j+1;
+        min = j;
       }
     }
     if(i != min)
