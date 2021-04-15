@@ -43,10 +43,11 @@ void bubble_sort(int arr[],int n)
 ```c
 void insert_sort(int arr[],int n)
 {
-  for(int i = 1;i < n;++i)
+  int i,j;
+  for(i = 1;i < n;++i)
   {
     int temp = arr[i];
-    for(int j = i - 1;j >= 0 && arr[j] > temp;--j)
+    for(j = i - 1;j >= 0 && arr[j] > temp;--j)
     {
       arr[j+1] = arr[j]
     }
@@ -120,7 +121,7 @@ void merge_sort_rec(int arr[],int reg[],int start,int end)
   while(start2 <= end2)
     reg[k++] = arr[start2++];
     
-  for(int i = 0;i <= end;++i)
+  for(int i = start;i <= end;++i)
     arr[i] = reg[i];
     
 }
