@@ -114,7 +114,7 @@ void merge_sort_rec(int arr[],int reg[],int start,int end)
   merge_sort_rec(arr,reg,start1,end1);
   merge_sort_rec(arr,reg,start2,end2);
   while(start1 <= end1 && start2 <= end2)
-    reg[k++] = arr[start1] <= arr[start2] ? arr[start1++] : arr[start2++];
+    reg[k++] = (arr[start1] <= arr[start2] ? arr[start1++] : arr[start2++]);
     
   while(start1 <= end1)
     reg[k++] = arr[start1++];
