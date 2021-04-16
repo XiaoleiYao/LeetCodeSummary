@@ -132,3 +132,52 @@ void merge_sort(int arr[],const int len)
   merge_sort_rec(arr,reg,0,len-1);
 }
 ```
+
+# 快速排序
+```
+* 时间复杂度
+   * 最坏：O(n^2);
+   * 最好：O(nlogn);
+   * 平均：O(nlogn);
+* 空间复杂度：O(1);
+* 稳定性：不稳定；
+```
+```c
+int partation(int arr[],int p,int r)
+{
+  int pivot = arr[r];
+  int k = p;
+  for(int i = p;i <= r-1;++i)
+  {
+    if(arr[i] < pivot)
+    {
+      int temp = arr[k]
+      arr[k] = arr[i];
+      arr[i] = temp;
+      k++;
+    }
+  }
+  int temp = arr[k];
+  arr[k] = arr[r];
+  arr[r] = temp;
+  
+  return k;
+}
+
+void quick_sort_c(int arr[],int start,int end)
+{
+  if(start >= end)
+  {
+    return;
+  }
+  int q = partation(arr,start,end);
+  quick_sort_c(arr,start,q-1);
+  quick_sort_c(arr,q+1,end);
+  
+}
+
+void quick_sort(int arr[],int len)
+{
+  quick_sort_c(arr,0,len-1);
+}
+```
